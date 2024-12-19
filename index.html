@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Menu di navigazione -->
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html" class="active">Quiz</a></li>
+        <li><a href="altre-domande.html">Altre Domande</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Trivia Quiz</h1>
+
+    <!-- Contatore della domanda corrente -->
+    <div id="question-counter" class="question-counter">Domanda 1 di 30</div>
+
+    <!-- Area del quiz -->
+    <div id="quiz-container">
+        <div id="question" class="question">Loading question...</div>
+        <div id="answers" class="answers"></div>
+    </div>
+
+    <!-- Feedback dinamico -->
+    <div id="feedback" class="feedback"></div>
+
+    <!-- Risultato finale -->
+    <div id="result" class="result hidden">
+        <p>Game Over! Hai totalizzato: <span id="final-score">0</span> punti!</p>
+    </div>
+
+    <!-- Pulsante per proseguire -->
+    <div style="" class="button-container">
+        <button id="next-question" class="hidden">Prossima domanda</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
