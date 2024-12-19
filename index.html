@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test di Studio</title>
+    <title>Trivia Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-    <h1>Test di Studio</h1>
-    <h2 id="question-title"></h2>
-    <div id="question-container">
-        <!-- La domanda con i vuoti apparirà qui -->
+    <h1>Trivia Quiz</h1>
+
+    <!-- Contatore della domanda corrente -->
+    <div id="question-counter" class="question-counter">Domanda 1 di 30</div>
+
+    <!-- Area del quiz -->
+    <div id="quiz-container">
+        <div id="question" class="question">Loading question...</div>
+        <div id="answers" class="answers"></div>
     </div>
-    <div id="options-container">
-        <!-- Le opzioni drag-and-drop appariranno qui -->
+
+    <!-- Feedback dinamico -->
+    <div id="feedback" class="feedback"></div>
+
+    <!-- Risultato finale -->
+    <div id="result" class="result hidden">
+        <p>Game Over! Hai totalizzato: <span id="final-score">0</span> punti!</p>
     </div>
-    <div id="feedback" class="hidden">
-        <!-- Feedback su correttezza apparirà qui -->
-    </div>
-    <div class="controls">
-        <button id="submit-button">Verifica</button>
+
+    <!-- Pulsante per proseguire -->
+    <div class="button-container">
+        <button id="next-question" class="hidden">Prosegui</button>
     </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
+
