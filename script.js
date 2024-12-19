@@ -19,15 +19,12 @@ function shuffle(array) {
 fetch('question.json')
     .then(response => response.json())
     .then(data => {
-        // Dividi le domande in normali e multiple
         const allNormalQuestions = data.filter(q => q.id >= 1 && q.id <= 159);
         const allMultiQuestions = data.filter(q => q.id >= 160 && q.id <= 175);
 
-        // Seleziona 27 domande casuali normali e 3 multiple
         normalQuestions = shuffle(allNormalQuestions).slice(0, 27);
         multiQuestions = shuffle(allMultiQuestions).slice(0, 3);
 
-        // Combina le domande normali in ordine e salva
         questions = [...normalQuestions];
         startQuiz();
     })
@@ -47,17 +44,15 @@ function startQuiz() {
 // Mostra la domanda corrente
 function showQuestion() {
     if (currentQuestionIndex >= questions.length) {
-        showMultiQuestions(); // Passa alle domande multiple alla fine
+        showMultiQuestions();
         return;
     }
 
     const question = questions[currentQuestionIndex];
     document.getElementById('question').textContent = question.question;
     const answersElement = document.getElementById('answers');
-    answersElement.innerHTML = ''; // Reset delle risposte
-    document.getElementById('feedback').textContent = ''; // Nasconde feedback precedente
+    answersElement.innerHTML = '';
 
-    // Se la domanda è normale (singola risposta)
     if (!question.correct_answers) {
         Object.entries(question.options).forEach(([key, answer]) => {
             const button = document.createElement('button');
@@ -66,7 +61,6 @@ function showQuestion() {
             answersElement.appendChild(button);
         });
     } else {
-        // Se la domanda è multipla (checkbox)
         Object.entries(question.options).forEach(([key, answer]) => {
             const label = document.createElement('label');
             const checkbox = document.createElement('input');
@@ -78,61 +72,34 @@ function showQuestion() {
             answersElement.appendChild(label);
         });
     }
-
-    document.getElementById('question-counter').textContent = `Domanda ${currentQuestionIndex + 1} di ${questions.length + multiQuestions.length}`;
 }
 
-// Controlla se la risposta selezionata è corretta (domande normali)
-function checkAnswer(selectedKey) {
-    const question = questions[currentQuestionIndex];
-    const isCorrect = selectedKey === question.correct_answer;
-    document.getElementById('feedback').textContent = question.feedback;
-
-    if (isCorrect) {
-        score++;
-    }
-
-    document.getElementById('next-question').classList.remove('hidden');
-}
-
-// Passa alla domanda successiva
-document.getElementById('next-question').addEventListener('click', () => {
-    currentQuestionIndex++;
-    document.getElementById('next-question').classList.add('hidden');
-    showQuestion();
-});
-
-// Mostra le domande multiple alla fine
-function showMultiQuestions() {
-    questions = multiQuestions;
-    currentQuestionIndex = 0;
-    document.getElementById('next-question').classList.add('hidden');
-    document.getElementById('check-final').classList.remove('hidden');
-    showQuestion();
-}
-
-// Verifica le risposte delle domande multiple
-document.getElementById('check-final').addEventListener('click', () => {
-    let allCorrect = true;
-
-    multiQuestions.forEach((question, index) => {
-        const selectedAnswers = Array.from(document.querySelectorAll('input[name="answer"]:checked'))
-            .map(input => input.value);
-        const correctAnswers = question.correct_answers;
-
-        if (selectedAnswers.sort().join(',') !== correctAnswers.sort().join(',')) {
-            allCorrect = false;
-        } else {
-            finalScore++;
-        }
+// Resetta le risposte delle domande multiple
+function resetMultiQuestion() {
+    const checkboxes = document.querySelectorAll('input[name="answer"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
     });
+}
 
-    if (allCorrect) {
-        document.getElementById('feedback').textContent = 'Hai risposto correttamente a tutte le domande finali!';
+// Verifica le domande multiple e consente nuovi tentativi
+document.getElementById('check-final').addEventListener('click', () => {
+    const question = multiQuestions[currentQuestionIndex];
+    const selectedAnswers = Array.from(document.querySelectorAll('input[name="answer"]:checked'))
+        .map(input => input.value);
+    const correctAnswers = question.correct_answers;
+
+    if (selectedAnswers.sort().join(',') === correctAnswers.sort().join(',')) {
+        finalScore++;
+        currentQuestionIndex++;
+        if (currentQuestionIndex < multiQuestions.length) {
+            resetMultiQuestion();
+            showQuestion();
+        } else {
+            document.getElementById('feedback').textContent = 'Hai completato le domande multiple!';
+        }
     } else {
-        document.getElementById('feedback').textContent = 'Alcune risposte sono errate. Riprovaci!';
+        document.getElementById('feedback').textContent = 'Risposta errata! Riprova.';
+        resetMultiQuestion();
     }
-
-    document.getElementById('result').classList.remove('hidden');
-    document.getElementById('final-score').textContent = `${score + finalScore} punti!`;
 });
