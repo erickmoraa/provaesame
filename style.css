@@ -81,6 +81,7 @@ h1:hover {
     transform: translateY(-3px);
 }
 
+/* Pulsanti con esito corretto o errato */
 .answers button.correct {
     background-color: #4CAF50;
     color: white;
@@ -110,6 +111,12 @@ h1:hover {
 #next-question {
     background-color: #28a745;
     color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
 }
 
 #next-question:hover {
@@ -123,4 +130,3 @@ h1:hover {
     margin-top: 20px;
     color: #333;
 }
-
