@@ -34,23 +34,32 @@ function startQuiz() {
 
 // Mostra la domanda corrente
 function showQuestion() {
-    if (currentQuestionIndex >= questions.length) {
-        endGame();
-        return;
-    }
-
     const question = questions[currentQuestionIndex];
     document.getElementById('question').textContent = question.question;
     const answersElement = document.getElementById('answers');
     answersElement.innerHTML = ''; // Reset delle risposte
-    document.getElementById('feedback').textContent = ''; // Nasconde feedback precedente
 
-    Object.entries(question.options).forEach(([key, answer]) => {
-        const button = document.createElement('button');
-        button.textContent = answer;
-        button.addEventListener('click', () => checkAnswer(key));
-        answersElement.appendChild(button);
-    });
+    if (question.correct_answers) {
+        // Domanda a risposta multipla
+        Object.entries(question.options).forEach(([key, answer]) => {
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = key;
+            checkbox.name = 'answer';
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(answer));
+            answersElement.appendChild(label);
+        });
+    } else {
+        // Domanda a risposta singola
+        Object.entries(question.options).forEach(([key, answer]) => {
+            const button = document.createElement('button');
+            button.textContent = answer;
+            button.addEventListener('click', () => checkAnswer(key));
+            answersElement.appendChild(button);
+        });
+    }
 
     document.getElementById('question-counter').textContent = `Domanda ${currentQuestionIndex + 1} di ${totalQuestions}`;
 }
@@ -58,34 +67,19 @@ function showQuestion() {
 // Controlla se la risposta selezionata è corretta
 function checkAnswer(selectedKey) {
     const question = questions[currentQuestionIndex];
-    const answers = document.querySelectorAll('.answers button');
-    answers.forEach(button => {
-        button.disabled = true; // Disabilita tutti i pulsanti
-        if (button.textContent === question.options[question.correct_answer]) {
-            button.classList.add('correct'); // Evidenzia la risposta corretta
-        } else if (question.options[selectedKey] === button.textContent) {
-            button.classList.add('incorrect'); // Evidenzia l'errore
-        }
-    });
+    const isCorrect = selectedKey === question.correct_answer;
+    document.getElementById('feedback').textContent = question.feedback;
 
-    if (selectedKey === question.correct_answer) {
+    if (isCorrect) {
         score++;
     }
 
-    document.getElementById('feedback').textContent = question.feedback;
     document.getElementById('next-question').classList.remove('hidden');
 }
-
-// Passa alla domanda successiva
-document.getElementById('next-question').addEventListener('click', () => {
-    currentQuestionIndex++;
-    document.getElementById('next-question').classList.add('hidden');
-    showQuestion();
-});
 
 // Mostra i risultati finali
 function endGame() {
     document.getElementById('quiz-container').classList.add('hidden');
     document.getElementById('result').classList.remove('hidden');
-    document.getElementById('final-score').textContent = `Game Over! Hai totalizzato ${score} punti su ${totalQuestions}!`;
+    document.getElementById('final-score').textContent = `${score} punti!`;
 }
