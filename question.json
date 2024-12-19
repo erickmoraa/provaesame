@@ -1747,9 +1747,209 @@
     },
     "correct_answer": "a",
     "feedback": "Con 8 bit, il range rappresentabile in complemento a 2 va da -128 a +127; il valore -140 eccede tale range."
+  },
+  {
+    "id": 160,
+    "question": "Il connettivo OR definisce un risultato vero (più risposte):",
+    "options": {
+      "a": "Solo se una delle condizioni è vera e l’altra è falsa",
+      "b": "È sufficiente che almeno 1 delle 2 condizioni sia vera",
+      "c": "Solo se entrambe le condizioni sono false",
+      "d": "Non può mai essere vero"
+    },
+    "correct_answers": ["a", "b"],
+    "feedback": "Il connettivo OR produce un risultato vero se almeno una delle due condizioni è vera."
+  },
+  {
+    "id": 161,
+    "question": "Lo scaricamento dalla rete è (più risposte):",
+    "options": {
+      "a": "È influenzato dalla velocità di connessione",
+      "b": "Si riferisce esclusivamente allo streaming video",
+      "c": "Consiste nel trasferire sul proprio computer file presenti sulla rete",
+      "d": "Non dipende mai dalla qualità della rete"
+    },
+    "correct_answers": ["a", "c"],
+    "feedback": "Lo scaricamento è condizionato dalla velocità della connessione e comporta il trasferimento di file dalla rete al computer."
+  },
+  {
+    "id": 162,
+    "question": "Quali delle seguenti funzioni sono tipiche di un sistema operativo (più risposte):",
+    "options": {
+      "a": "Gestire periferiche",
+      "b": "Copiare un file",
+      "c": "Progettare reti locali",
+      "d": "Modificare immagini"
+    },
+    "correct_answers": ["a", "b"],
+    "feedback": "Il sistema operativo gestisce periferiche, file e risorse hardware, ma non è direttamente coinvolto in attività come progettazione di reti o editing di immagini."
+  },
+  {
+    "id": 163,
+    "question": "Un PDA è un computer (più risposte):",
+    "options": {
+      "a": "Di dimensioni ridotte",
+      "b": "Un computer con cui si può interagire mediante un’apposita penna",
+      "c": "Una console di gioco portatile",
+      "d": "Una stampante intelligente"
+    },
+    "correct_answers": ["a", "b"],
+    "feedback": "Un PDA (Personal Digital Assistant) è un dispositivo compatto usato per organizzare dati e attività."
+  },
+  {
+    "id": 164,
+    "question": "Il numero binario 100110 può essere interpretato come (più risposte):",
+    "options": {
+      "a": "Meno 25",
+      "b": "Rappresentazione di +50",
+      "c": "Complemento a 2 di -26",
+      "d": "Una sequenza binaria non valida"
+    },
+    "correct_answers": ["a", "c"],
+    "feedback": "Il numero binario 100110 rappresenta in complemento a 2 il valore -26 o -25 (a seconda del sistema)."
+  },
+  {
+    "id": 165,
+    "question": "Se 8 bit = 1B, 1024B = 1K, 1K = 2^10B, 16B = 2^30B, 1MB = 2^20B, quale relazione è giusta (più risposte):",
+    "options": {
+      "a": "8×1024B < 2^20B",
+      "b": "1024KB = 2^10B",
+      "c": "11MB > 2^30B",
+      "d": "16B > 2^10B"
+    },
+    "correct_answers": ["a", "b"],
+    "feedback": "Le relazioni corrette rispettano le regole di conversione binaria; 11MB è uguale a 2^20B."
+  },
+  {
+    "id": 166,
+    "question": "Quale delle seguenti affermazioni sono valide per la posta elettronica (più risposte):",
+    "options": {
+      "a": "Espone al rischio di infezione da virus",
+      "b": "Non richiede una connessione a internet",
+      "c": "Consente di inviare file di tipo diverso",
+      "d": "È completamente immune da attacchi esterni"
+    },
+    "correct_answers": ["a", "c"],
+    "feedback": "La posta elettronica è utile per inviare file, ma espone a rischi come virus e phishing."
+  },
+  {
+    "id": 167,
+    "question": "Quale delle seguenti proprietà/definizioni sono vere per la struttura dati (più risposte):",
+    "options": {
+      "a": "È gestita secondo una politica FIFO",
+      "b": "Non può contenere cicli",
+      "c": "È un grafo aciclico",
+      "d": "È sempre di tipo LIFO"
+    },
+    "correct_answers": ["a", "c"],
+    "feedback": "La struttura dati può essere una coda (FIFO) o un grafo aciclico, ma non è obbligatoriamente LIFO."
+  },
+  {
+    "id": 168,
+    "question": "Il numero binario 000000010110 può essere interpretato come (più risposte):",
+    "options": {
+      "a": "Un valore negativo in complemento a 2",
+      "b": "Codifica a 12px di un’immagine",
+      "c": "Codifica del numero +22",
+      "d": "Rappresentazione non valida"
+    },
+    "correct_answers": ["b", "c"],
+    "feedback": "In binario, 000000010110 corrisponde al valore decimale +22 e può rappresentare un dato per immagini."
+  },
+  {
+    "id": 169,
+    "question": "Quale delle seguenti proprietà/definizioni sono vere per CSS (più risposte):",
+    "options": {
+      "a": "È un linguaggio per la formattazione di linguaggi di markup",
+      "b": "È un linguaggio per la formattazione dei documenti XHTML",
+      "c": "Può eseguire script server-side",
+      "d": "Le regole per comporre il CSS sono contenute in un insieme di direttive emanate dal W3C",
+      "e": "Non è utilizzabile nei documenti XML"
+    },
+    "correct_answers": ["a", "b", "d"],
+    "feedback": "CSS (Cascading Style Sheets) è usato per la formattazione di documenti e segue le regole del W3C, ma non esegue script lato server."
+  },
+  {
+    "id": 170,
+    "question": "Quali tra le seguenti estensioni NON è associata a un documento di testo (più risposte):",
+    "options": {
+      "a": "Html",
+      "b": "Txt",
+      "c": "Mpeg",
+      "d": "Jpg",
+      "e": "Rtf"
+    },
+    "correct_answers": ["a", "c", "d"],
+    "feedback": "Estensioni come HTML, MPEG e JPG non appartengono ai documenti di testo; TXT e RTF sì."
+  },
+  {
+    "id": 171,
+    "question": "Quale delle seguenti proprietà/definizioni sono vere per la struttura dati ALBERO (più risposte):",
+    "options": {
+      "a": "Possedere un solo cammino per ogni coppia di vertici",
+      "b": "È un grafo aciclico",
+      "c": "È sempre un grafo completo",
+      "d": "È un grafo connesso",
+      "e": "Non può contenere nodi foglia"
+    },
+    "correct_answers": ["a", "b", "d"],
+    "feedback": "Un albero è una struttura gerarchica aciclica, connessa, e ogni coppia di vertici è connessa da un solo cammino."
+  },
+  {
+    "id": 172,
+    "question": "Una memoria di 32KB organizzata a parole di 64B può contenere una parola all’indirizzo di memoria corrispondente a 2^8? (più risposte):",
+    "options": {
+      "a": "Sì",
+      "b": "No",
+      "c": "Non è possibile utilizzare la memoria",
+      "d": "Dipende dalla tipologia di memoria"
+    },
+    "correct_answers": ["a", "b", "d"],
+    "feedback": "La capacità totale e l'organizzazione delle parole determinano se un indirizzo come 2^8 è contenuto."
+  },
+  {
+    "id": 173,
+    "question": "Elementi che compongono la macchina di Von Neumann (più risposte):",
+    "options": {
+      "a": "Unità di uscita",
+      "b": "Unità di entrata",
+      "c": "Unità aritmetico-logica",
+      "d": "Cache",
+      "e": "Memoria",
+      "f": "Scheda grafica"
+    },
+    "correct_answers": ["a", "b", "c", "e"],
+    "feedback": "La macchina di Von Neumann comprende unità di input, output, calcolo (ALU), e memoria; non include componenti come cache o GPU."
+  },
+  {
+    "id": 174,
+    "question": "Indicare quali fra le seguenti caratteristiche contraddistinguono un algoritmo. Un algoritmo deve (più risposte):",
+    "options": {
+      "a": "Essere definito e preciso",
+      "b": "Essere finito",
+      "c": "Essere sempre veloce",
+      "d": "Essere eseguibile",
+      "e": "Fornire almeno un risultato in uscita",
+      "f": "Non richiedere dati di ingresso"
+    },
+    "correct_answers": ["a", "b", "d", "e"],
+    "feedback": "Un algoritmo è definito, finito e deve essere eseguibile; non sempre è veloce, ma richiede dati in ingresso per fornire un risultato."
+  },
+  {
+    "id": 175,
+    "question": "Quali tra le seguenti estensioni è associata a un documento di testo (più risposte):",
+    "options": {
+      "a": "Txt",
+      "b": "Rtf",
+      "c": "Odt",
+      "d": "Jpg",
+      "e": "Ott",
+      "f": "Docx",
+      "g": "Mpeg"
+    },
+    "correct_answers": ["a", "b", "c", "e", "f"],
+    "feedback": "Estensioni come TXT, RTF, ODT, OTT e DOCX sono documenti di testo, mentre JPG e MPEG appartengono rispettivamente a immagini e video."
   }
 ]
-
-
 
 
