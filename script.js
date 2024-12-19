@@ -6,7 +6,7 @@ fetch('questions.json')
     .then(response => response.json())
     .then(data => {
         // Filtra le domande con id da 1 a 150
-        questions = data.filter(question => question.id >= 1 && question.id <= 150);
+        questions = data.filter(question => question.id >= 1 && question.id <= 159);
         showQuestion(); // Mostra la prima domanda
     })
     .catch(error => console.error('Errore nel caricamento del file JSON:', error));
