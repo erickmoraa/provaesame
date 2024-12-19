@@ -81,6 +81,18 @@ h1:hover {
     transform: translateY(-3px);
 }
 
+/* Risposte multiple con checkbox */
+.answers label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.answers input[type="checkbox"] {
+    margin-right: 10px;
+}
+
 /* Pulsanti con esito corretto o errato */
 .answers button.correct {
     background-color: #4CAF50;
@@ -108,7 +120,7 @@ h1:hover {
     display: none;
 }
 
-#next-question {
+#next-question, #check-final {
     background-color: #28a745;
     color: white;
     padding: 10px 15px;
@@ -119,7 +131,7 @@ h1:hover {
     transition: background-color 0.3s, transform 0.3s ease;
 }
 
-#next-question:hover {
+#next-question:hover, #check-final:hover {
     background-color: #218838;
     transform: translateY(-3px);
 }
