@@ -161,14 +161,6 @@ h1 {
     margin-top: 20px;
     color: #333;
 }
-}
-
-/* Pulsanti di navigazione */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
 
 .button {
     padding: 10px 20px;
